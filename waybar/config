@@ -2,7 +2,7 @@
         "layer": "top",
         "position": "top",
         "reload_style_on_change": true,
-        "modules-left": ["custom/power","custom/pacman","mpris","custom/media-prev", "custom/media-play-pause", "custom/media-next"],
+        "modules-left": ["custom/power","custom/pacman","battery","mpris","custom/media-prev", "custom/media-play-pause", "custom/media-next"],
         "modules-center": ["hyprland/workspaces"],
         "modules-right": ["tray","custom/mic","pulseaudio","pulseaudio/slider","network","custom/screenshot","custom/colorpicker","clock","custom/notification"],
 
