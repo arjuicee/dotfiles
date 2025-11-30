@@ -41,7 +41,7 @@ Plug('emmanueltouzery/decisive.nvim') --view csv files
 Plug('folke/twilight.nvim') --surrounding dim
 Plug('windwp/nvim-ts-autotag') -- auto-close HTML tags
 Plug('mason-org/mason.nvim') --mason
-Plug('mason-org/mason-lspconfig.nvim') --mason lsp config
+Plug('williamboman/mason-lspconfig.nvim') --mason lsp config
 Plug('neovim/nvim-lspconfig') --Main LSP Client
 vim.call('plug#end')
 
@@ -84,7 +84,7 @@ require("plugins.lsp-config")
 end, 100)
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "tsserver" }
+	ensure_installed = { "lua_ls", "ts_ls","emmet_ls" }
 })
 
 -- LSPs
