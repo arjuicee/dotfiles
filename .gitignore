@@ -1,16 +1,26 @@
+# ignore everything
 *
 
-# these folders are allowded
+# allow folders + their contents
 !alacritty/
+!alacritty/**
 !hypr/
+!hypr/**
 !kitty/
+!kitty/**
 !nvim/
+!nvim/**
 !scripts/
+!scripts/**
 !waybar/
+!waybar/**
 !wlogout/
+!wlogout/**
 !wofi/
+!wofi/**
 
-# these files are allowded
+# allow specific files
 !README.md
 !starship.toml
 !.gitignore
+

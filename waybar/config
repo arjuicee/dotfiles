@@ -1,0 +1,225 @@
+{
+        "layer": "top",
+        "position": "top",
+        "reload_style_on_change": true,
+        "modules-left": ["custom/power","custom/pacman","mpris","custom/media-prev", "custom/media-play-pause", "custom/media-next"],
+        "modules-center": ["hyprland/workspaces"],
+        "modules-right": ["tray","custom/mic","pulseaudio","pulseaudio/slider","network","custom/screenshot","custom/colorpicker","clock","custom/notification"],
+
+
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "1":" 1 ",
+                "2":" 2 ",
+                "3":" 3 ",
+                "4":" 4 ",
+                "5":" 5 ",
+                "6":" 6",
+                "7": "7",
+                "default": "",
+                "empty": ""
+            },
+            "persistent-workspaces": {
+                "*": [ 1,2,3 ]
+            }
+        },
+        "custom/notification": {
+            "tooltip": false,
+            "format": "  ",
+            "on-click": "swaync-client -t -sw",
+            "escape": true
+        },
+       "mpris": {
+			"format": "{player_icon} {dynamic}",
+			"format-paused": "{player_icon} {dynamic}",
+			"player-icons": {
+			"default": "▶",
+			"spotify": "<span color='#1DB954'> </span>",
+			"firefox": "<span color='#FFA530'> </span>",
+			"vlc": "<span color='#FF9700'>󰕼 </span>",
+				"mpv": "󰐹"
+		},
+			"dynamic-len": 30,
+			"dynamic-fixed-len": true,
+			"dynamic-sep": " - ",
+			"interval": 0.5,
+			"dynamic-importance-order": ["title", "artist", "album"],
+			"dynamic-order": ["title", "artist"],
+			"tooltip-format": "{player}: {artist} - {title} ({album})",
+			"on-click": "playerctl play-pause"
+		},
+        "custom/media-prev": {
+            "format": "󰒮",
+            "on-click": "playerctl previous",
+            "tooltip": false
+        },
+        "custom/media-play-pause": {
+            "format": "{icon}",
+            "return-type": "json",
+            "format-icons": {
+                "Playing": "󰏤",
+                "Paused": "󰐊"
+            },
+            "exec": "playerctl -a metadata --format '{\"text\": \"{{status}}\", \"tooltip\": \"{{playerName}}: {{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+            "on-click": "playerctl play-pause",
+            "tooltip": true
+        },
+        "custom/media-next": {
+            "format": "󰒭",
+            "on-click": "playerctl next",
+            "tooltip": false
+        },
+        "clock": {
+            "format": "{:%I:%M %p} ",
+            "interval": 1,   
+            "tooltip-format": "<tt>{calendar}</tt>",
+            "calendar": {
+                "format": {
+                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
+                }
+            },
+            "actions": {
+                "on-click-right": "shift_down",
+                "on-click": "shift_up"
+            }
+        },
+        "pulseaudio/slider": {
+            "min": 0,
+            "max": 150,
+            "orientation": "horizontal"
+        },
+        "network": {
+            "interface": "enp8s0",
+            "format-wifi": " ",
+            "format-ethernet":" ",
+            "format-disconnected": " ",
+            "tooltip-format-disconnected": "Error",
+            "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+            "tooltip-format-ethernet": "{ifname} 🖧 ",
+            "on-click": "kitty nmtui"
+        },
+        "pulseaudio": {
+            "format": "{volume}% {icon}",
+            "format-muted": "",
+            "format-icons": {
+                "alsa_output.pci-0000_00_1f.3.analog-stereo": " ",
+                "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "  ",
+                "headphone": "󰋋 ",
+                "default": "󰋋 "
+                },
+            "scroll-step": 1,
+            "on-click": "pavucontrol",
+            "ignored-sinks": ["Easy Effects Sink"]
+        },
+        "bluetooth": {
+            "format-on": "󰂯",
+            "format-off": "BT-off",
+            "format-disabled": "󰂲",
+            "format-connected-battery": "{device_battery_percentage}% 󰂯",
+            "format-alt": "{device_alias} 󰂯",
+            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+            "on-click-right": "blueman-manager"
+        }, 
+        "battery": {
+            "interval":30,
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-charging": "{capacity}% 󰂄",
+            "format-plugged": "{capacity}% 󰂄 ",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "󰁻",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+            ],
+        },
+        "custom/pacman": {
+            "format": "󰅢  {} ",
+            "interval": 30,   
+            "exec": "checkupdates | wc -l",
+            "exec-if": "exit 0",
+            "on-click": "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+            "signal": 8,
+            "tooltip": false,
+        },
+        "custom/expand": {
+            "format": "",
+            "tooltip": false
+        },
+        "custom/endpoint":{
+            "format": "|",
+            "tooltip": false
+        },
+        "group/expand": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 600,
+                "transition-to-left": true,
+                "click-to-reveal": true
+            },
+            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","custom/endpoint"],
+        },
+        "custom/colorpicker": {
+            "format": " ",
+            "return-type": "json",
+            "interval": "once",
+            "exec": "~/.config/scripts/colorpicker.sh -j",
+            "on-click": "~/.config/scripts/colorpicker.sh",
+            "tooltip": "pick a screen color",
+            "signal": 1
+        },
+        "cpu": {
+            "format": "󰻠",
+            "tooltip": true
+        },
+        "memory": {
+            "format": ""
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "",
+        },
+        "tray": {
+            "icon-size": 20,
+            "spacing": 10
+        },
+        "custom/screenshot": {
+            "format": "󰄄 ",
+            "return-type": "json",
+            "interval": "once",
+            "exec": "echo '{\"text\":\"󰄄 \", \"tooltip\":\"Copy region to clipboard\"}'",
+            "on-click": "~/.config/scripts/screenshot_region_copy.sh",
+            "tooltip": "Copy region to clipboard"
+        },
+        "custom/mic": {
+            "format": "{percentage}% {icon}",
+            "return-type": "json",
+            "interval": 1,
+            "exec": "~/.config/waybar/scripts/mic-volume.sh",
+            "format-icons": {
+                "muted": " ",
+                "default": ""
+            },
+            "on-click": "pactl set-source-mute alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback toggle",
+            "on-scroll-up": "pactl set-source-volume alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback +1%",
+            "on-scroll-down": "pactl set-source-volume alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback -1%",
+            "tooltip": true
+        },
+        "custom/power": {
+            "format": "⏻",
+            "tooltip": "Power Menu",
+            "on-click": "wlogout",
+            "interval": 0
+        }
+} 
