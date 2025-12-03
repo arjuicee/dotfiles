@@ -1,21 +1,16 @@
-mimeapps.list
-pavucontrol.ini
-xfce4/
-gtk-3.0/
-pulse/
-GIMP/
-session/
-kdeconnect/
-yay/
-dconf/
-go/
-pulse/
-Thunar/
-dolphinrc
-gtk-3.0/
-kwriterc
-droidcam
-htop/
-libreoffice/
-katevirc
+*
 
+# these folders are allowded
+!alacritty/
+!hypr/
+!kitty/
+!nvim/
+!scripts/
+!waybar/
+!wlogout/
+!wofi/
+
+# these files are allowded
+!README.md
+!starship.toml
+!.gitignore
