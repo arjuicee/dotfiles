@@ -109,7 +109,7 @@
                 "default": "󰋋 "
                 },
             "scroll-step": 1,
-            "on-click": "pavucontrol",
+            "on-click": "~/.config/waybar/scripts/front_toggle.sh",
             "ignored-sinks": ["Easy Effects Sink"]
         },
         "bluetooth": {
