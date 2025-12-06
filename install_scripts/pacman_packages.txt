@@ -8,6 +8,8 @@ flatpak
 fuzzel
 fzf
 git
+hyprpicker
+hyprpaper
 kdeconnect
 less
 libnotify

@@ -174,8 +174,8 @@
             "format": " ",
             "return-type": "json",
             "interval": "once",
-            "exec": "~/.config/scripts/colorpicker.sh -j",
-            "on-click": "~/.config/scripts/colorpicker.sh",
+            "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
+            "on-click": "~/.config/waybar/scripts/colorpicker.sh",
             "tooltip": "pick a screen color",
             "signal": 1
         },
@@ -199,7 +199,7 @@
             "return-type": "json",
             "interval": "once",
             "exec": "echo '{\"text\":\"󰄄 \", \"tooltip\":\"Copy region to clipboard\"}'",
-            "on-click": "~/.config/scripts/screenshot_region_copy.sh",
+            "on-click": "~/.config/waybar/scripts/screenshot_region_copy.sh",
             "tooltip": "Copy region to clipboard"
         },
         "custom/mic": {
