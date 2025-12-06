@@ -20,6 +20,8 @@
 !wofi/**
 !install_scripts/
 !install_scripts/**
+!dotfiles/
+!dotfiles/**
 
 # allow specific files
 !README.md
