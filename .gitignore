@@ -18,6 +18,8 @@
 !wlogout/**
 !wofi/
 !wofi/**
+!install_scripts/
+!install_scripts/**
 
 # allow specific files
 !README.md
